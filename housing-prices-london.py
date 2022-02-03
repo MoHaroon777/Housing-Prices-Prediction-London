@@ -1,1 +1,37 @@
-{"metadata":{"kernelspec":{"language":"python","display_name":"Python 3","name":"python3"},"language_info":{"pygments_lexer":"ipython3","nbconvert_exporter":"python","version":"3.6.4","file_extension":".py","codemirror_mode":{"name":"ipython","version":3},"name":"python","mimetype":"text/x-python"}},"nbformat_minor":4,"nbformat":4,"cells":[{"cell_type":"code","source":"# This Python 3 environment comes with many helpful analytics libraries installed\n# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python\n# For example, here's several helpful packages to load\n\nimport numpy as np # linear algebra\nimport pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)\nfrom sklearn.tree import DecisionTreeRegressor\n\n# Input data files are available in the read-only \"../input/\" directory\n# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory\n\nimport os\n# for dirname, _, filenames in os.walk('/kaggle/input'):\n#     for filename in filenames:\n#         print(os.path.join(dirname, filename))\nLondon_Housing_file_data = \"/kaggle/input/housing-prices-in-london/London.csv\"\nhouse_data = pd.read_csv(London_Housing_file_data)\n\n#From data columns, store the input columns into a list\nfeature_inputs = [\"Area in sq ft\", \"No. of Bedrooms\", \"No. of Bathrooms\"] \n\nX = house_data[feature_inputs]  # use the input list as our inputs\ny = house_data.Price # store the expected value (Price) into a new variable (y)\n\n#create a model and assign a random number to ensure same result on every run\nLondon_model = DecisionTreeRegressor(random_state = 7)\n#Fit data into model\nLondon_model.fit(X, y) #where X is our input and y is our desired output\n\nprint(\"Predicted Price :\" , end=\" \")\n# Print the top 5 result of the predicted price column\nprint(London_model.predict(X.head()))\n# Print the top 5 result of the original price column\nprint(house_data.Price.head())","metadata":{"_uuid":"663539d1-63d6-4f6a-887b-d41d6b8baa84","_cell_guid":"b98b777e-4045-431b-9974-59c5690d9ca0","collapsed":false,"jupyter":{"outputs_hidden":false},"execution":{"iopub.status.busy":"2022-02-03T02:20:39.083049Z","iopub.execute_input":"2022-02-03T02:20:39.083413Z","iopub.status.idle":"2022-02-03T02:20:40.467315Z","shell.execute_reply.started":"2022-02-03T02:20:39.083377Z","shell.execute_reply":"2022-02-03T02:20:40.466147Z"},"trusted":true},"execution_count":6,"outputs":[{"name":"stdout","text":"Predicted Price : [1675000.  786250.  695000. 1765000.  675000.]\n0    1675000\n1     650000\n2     735000\n3    1765000\n4     675000\nName: Price, dtype: int64\n","output_type":"stream"}]},{"cell_type":"code","source":"","metadata":{"_uuid":"790dd8c4-a335-4614-8e77-2d986bf6ac0c","_cell_guid":"30a388a0-f378-4bbc-97ec-c1481803e031","collapsed":false,"jupyter":{"outputs_hidden":false},"trusted":true},"execution_count":null,"outputs":[]}]}
+# %% [code] {"jupyter":{"outputs_hidden":false},"execution":{"iopub.status.busy":"2022-02-03T02:20:39.083049Z","iopub.execute_input":"2022-02-03T02:20:39.083413Z","iopub.status.idle":"2022-02-03T02:20:40.467315Z","shell.execute_reply.started":"2022-02-03T02:20:39.083377Z","shell.execute_reply":"2022-02-03T02:20:40.466147Z"}}
+# This Python 3 environment comes with many helpful analytics libraries installed
+# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
+# For example, here's several helpful packages to load
+
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+from sklearn.tree import DecisionTreeRegressor
+
+# Input data files are available in the read-only "../input/" directory
+# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+
+import os
+# for dirname, _, filenames in os.walk('/kaggle/input'):
+#     for filename in filenames:
+#         print(os.path.join(dirname, filename))
+London_Housing_file_data = "/kaggle/input/housing-prices-in-london/London.csv"
+house_data = pd.read_csv(London_Housing_file_data)
+
+#From data columns, store the input columns into a list
+feature_inputs = ["Area in sq ft", "No. of Bedrooms", "No. of Bathrooms"] 
+
+X = house_data[feature_inputs]  # use the input list as our inputs
+y = house_data.Price # store the expected value (Price) into a new variable (y)
+
+#create a model and assign a random number to ensure same result on every run
+London_model = DecisionTreeRegressor(random_state = 7)
+#Fit data into model
+London_model.fit(X, y) #where X is our input and y is our desired output
+
+print("Predicted Price :" , end=" ")
+# Print the top 5 result of the predicted price column
+print(London_model.predict(X.head()))
+# Print the top 5 result of the original price column
+print(house_data.Price.head())
+
+# %% [code] {"jupyter":{"outputs_hidden":false}}
