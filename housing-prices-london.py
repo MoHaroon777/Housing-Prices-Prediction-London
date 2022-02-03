@@ -28,7 +28,7 @@ London_model = DecisionTreeRegressor(random_state = 7)
 #Fit data into model
 London_model.fit(X, y) #where X is our input and y is our desired output
 
-print("Predicted Price :"end=" ")
+print("Predicted Price :", end=" ")
 print(London_model.predict(X.head()))
 print(house_data.Price.head())
 
