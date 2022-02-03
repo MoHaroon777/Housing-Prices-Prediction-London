@@ -16,26 +16,20 @@ for dirname, _, filenames in os.walk('/kaggle/input'):
         print(os.path.join(dirname, filename))
 London_Housing_file_data = "/kaggle/input/housing-prices-in-london/London.csv"
 house_data = pd.read_csv(London_Housing_file_data)
-#print(house_data.describe()) # print the list of columns in the data
-
-#print(Yr_London_data.population_size.describe)
 
 #From data columns, store the input columns into a list
 feature_inputs = ["Area in sq ft", "No. of Bedrooms", "No. of Bathrooms"] 
 
 X = house_data[feature_inputs]  # use the input list as our inputs
-y = house_data.Price
+y = house_data.Price # store the expected value (Price) into a new variable (y)
 
 #create a model and assign a random number to ensure same result on every run
 London_model = DecisionTreeRegressor(random_state = 7)
 #Fit data into model
 London_model.fit(X, y) #where X is our input and y is our desired output
-print(house_data.columns)
 
-print("Predicting Prices")
+print("Predicted Price :"end=" ")
 print(London_model.predict(X.head()))
 print(house_data.Price.head())
-# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
-# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
 
 # %% [code]
