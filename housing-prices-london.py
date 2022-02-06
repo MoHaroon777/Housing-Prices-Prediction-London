@@ -14,7 +14,7 @@ import os
 # for dirname, _, filenames in os.walk('/kaggle/input'):
 #     for filename in filenames:
 #         print(os.path.join(dirname, filename))
-London_Housing_file_data = "/kaggle/input/housing-prices-in-london/London.csv"
+London_Housing_file_data = "../London-housing-dataset.csv"
 house_data = pd.read_csv(London_Housing_file_data)
 
 #From data columns, store the input columns into a list
