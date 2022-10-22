@@ -1,19 +1,8 @@
-# %% [code] {"jupyter":{"outputs_hidden":false},"execution":{"iopub.status.busy":"2022-02-03T02:20:39.083049Z","iopub.execute_input":"2022-02-03T02:20:39.083413Z","iopub.status.idle":"2022-02-03T02:20:40.467315Z","shell.execute_reply.started":"2022-02-03T02:20:39.083377Z","shell.execute_reply":"2022-02-03T02:20:40.466147Z"}}
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 from sklearn.tree import DecisionTreeRegressor
-
-# Input data files are available in the read-only "../input/" directory
-# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
-
 import os
-# for dirname, _, filenames in os.walk('/kaggle/input'):
-#     for filename in filenames:
-#         print(os.path.join(dirname, filename))
+
 London_Housing_file_data = "../London-housing-dataset.csv"
 house_data = pd.read_csv(London_Housing_file_data)
 
@@ -34,4 +23,3 @@ print(London_model.predict(X.head()))
 # Print the top 5 result of the original price column
 print(house_data.Price.head())
 
-# %% [code] {"jupyter":{"outputs_hidden":false}}
